@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For You 💗</title>
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#ffe6ef;
+  font-family:'Poppins',sans-serif;
+}
+.wrapper{
+  text-align:center;
+  animation:fadeIn 1.5s ease;
+}
+.envelope{
+  width:230px;
+  height:150px;
+  background:#ff9eb5;
+  position:relative;
+  border-radius:8px;
+  cursor:pointer;
+  animation:bounce 2s infinite;
+  box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
+.envelope::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,transparent 50%,#ffb3c6 50%);
+}
+.heart{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) rotate(45deg);
+  width:32px;
+  height:32px;
+  background:#ff4d6d;
+  animation:pulse 1.5s infinite;
+}
+.heart::before,.heart::after{
+  content:"";
+  position:absolute;
+  width:32px;
+  height:32px;
+  background:#ff4d6d;
+  border-radius:50%;
+}
+.heart::before{top:-16px;}
+.heart::after{left:-16px;}
+p{margin-top:18px;color:#555;font-size:14px;}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+@keyframes pulse{
+  0%,100%{transform:translate(-50%,-50%) rotate(45deg) scale(1)}
+  50%{transform:translate(-50%,-50%) rotate(45deg) scale(1.15)}
+}
+@keyframes fadeIn{
+  from{opacity:0;transform:scale(.9)}
+  to{opacity:1;transform:scale(1)}
+}
+</style>
+</head>
+
+<body onclick="location.href='letter.html'">
+  <div class="wrapper">
+    <div class="envelope">
+      <div class="heart"></div>
+    </div>
+    <p>Tap to open 💌</p>
+  </div>
+</body>
+</html>
