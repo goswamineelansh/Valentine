@@ -1,71 +1,171 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>One Question 💗</title>
-<style>
-body{
-  margin:0;
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:#ffe6ef;
-  font-family:'Poppins',sans-serif;
-}
-.box{
-  background:white;
-  width:330px;
-  padding:30px;
-  border-radius:18px;
-  text-align:center;
-  box-shadow:0 15px 35px rgba(0,0,0,.2);
-  animation:fadeIn 1.2s ease;
-}
-h3{color:#ff4d6d}
-.buttons{
-  margin-top:30px;
-  height:90px;
-  position:relative;
-}
-button{
-  padding:10px 24px;
-  border:none;
-  border-radius:25px;
-  cursor:pointer;
-  position:absolute;
-}
-#yes{
-  background:#ff4d6d;
-  color:white;
-  left:30px;
-}
-#no{
-  background:#ddd;
-  right:30px;
-}
+  <meta charset="UTF-8">
+  <title>For Shivani 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-@keyframes fadeIn{
-  from{opacity:0;transform:scale(.9)}
-  to{opacity:1;transform:scale(1)}
-}
-</style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #ffd1dc, #ffe6f0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px 25px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      animation: pop 1s ease;
+      width: 90%;
+      max-width: 380px;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.7); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .heart {
+      font-size: 50px;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .buttons {
+      margin-top: 25px;
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      padding: 12px 25px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      position: absolute;
+      transition: 0.3s ease;
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+      left: 30px;
+      bottom: 10px;
+    }
+
+    #yesBtn:hover {
+      background: #ff2f55;
+    }
+
+    #noBtn {
+      background: #ffc2d1;
+      color: #333;
+      right: 30px;
+      bottom: 10px;
+    }
+
+    .footer {
+      margin-top: 15px;
+      font-size: 13px;
+      color: #999;
+    }
+  </style>
 </head>
 
 <body>
-  <div class="box">
-    <h3>Will you be mine? 💞</h3>
-    <div class="buttons">
-      <button id="yes" onclick="location.href='songs.html'">Yes</button>
-      <button id="no" onmouseover="moveNo()">No</button>
-    </div>
+
+<div class="container">
+  <div class="heart">💖</div>
+
+  <h1>Shivani</h1>
+
+  <p>
+    From random smiles to silent thoughts,<br>
+    you somehow became my favorite feeling.<br><br>
+    So today, with all my heart…
+  </p>
+
+  <h2 style="color:#ff4d6d;">Will you be my Valentine? 🌹</h2>
+
+  <div class="buttons">
+    <button id="yesBtn" onclick="yesClicked()">YES 💕</button>
+    <button id="noBtn" onclick="moveNo()">NO 🙈</button>
   </div>
 
+  <div class="footer">
+    Made with ❤️ just for you
+  </div>
+</div>
+
 <script>
-function moveNo(){
-  const no=document.getElementById("no");
-  no.style.top=Math.random()*60+"px";
-  no.style.left=Math.random()*200+"px";
-}
+  function moveNo() {
+    const noBtn = document.getElementById("noBtn");
+    const container = document.querySelector(".buttons");
+
+    const maxX = container.clientWidth - noBtn.clientWidth;
+    const maxY = container.clientHeight - noBtn.clientHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  }
+
+  function yesClicked() {
+    document.body.innerHTML = `
+      <div style="
+        height:100vh;
+        background: linear-gradient(135deg,#ffd1dc,#ffe6f0);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        font-family:Poppins,sans-serif;
+        animation: pop 1s ease;
+      ">
+        <div>
+          <h1 style="color:#ff4d6d;font-size:40px;">YAYYYYY 💕</h1>
+          <p style="font-size:20px;color:#555;">
+            I knew it 🥹💖<br><br>
+            Happy Valentine’s Day, Shivani 🌹<br>
+            You just made my heart smile forever ✨
+          </p>
+          <div style="font-size:50px;">💞💞💞</div>
+        </div>
+      </div>
+    `;
+  }
 </script>
+
 </body>
 </html>
