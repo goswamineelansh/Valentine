@@ -1,19 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>For Shivani 💗</title>
-
+<title>Proposal 💖</title>
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
 
 body{
-  height:100vh;
+  height:100svh;
   background:linear-gradient(135deg,#ffd1dc,#ffe6f0);
   display:flex;
   justify-content:center;
@@ -22,152 +16,107 @@ body{
 }
 
 .card{
+  width:90%;
+  max-width:360px;
   background:white;
-  padding:35px 30px;
-  width:340px;
+  padding:26px;
   border-radius:20px;
   text-align:center;
   box-shadow:0 15px 40px rgba(0,0,0,.2);
-  animation:fadeIn 1s ease;
 }
 
-h1{
-  color:#ff4d6d;
-  margin-bottom:15px;
-}
-
-p{
-  color:#555;
-  font-size:16px;
-  margin-bottom:25px;
-  line-height:1.5;
-}
+h1{color:#ff4d6d;margin-bottom:14px;}
+p{font-size:15px;color:#555;margin-bottom:24px;}
 
 .buttons{
   display:flex;
-  justify-content:center;
-  gap:20px;
+  gap:14px;
 }
 
 button{
-  padding:12px 28px;
-  font-size:16px;
+  flex:1;
+  padding:14px 0;
   border:none;
   border-radius:30px;
-  cursor:pointer;
-  transition:.2s;
+  font-size:16px;
 }
 
-#yesBtn{
-  background:#ff4d6d;
-  color:white;
-}
-
-#yesBtn:hover{
-  transform:scale(1.05);
-}
-
-#noBtn{
-  background:#ddd;
-  color:#333;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:scale(.9);}
-  to{opacity:1; transform:scale(1);}
-}
+#yes{background:#ff4d6d;color:white;}
+#no{background:#eee;color:#333;}
 </style>
 </head>
 
 <body>
 
 <div class="card">
-  <h1>Hey Shivani 💗</h1>
+  <h1>Shivani 💗</h1>
   <p>
-    I don’t want to rush you,  
-    I don’t want to force anything…  
-    <br><br>
-    But my heart already knows where it belongs 🥺💞  
+    I don’t know about forever,  
+    but I know I choose you today 💞  
     <br><br>
     Will you be mine?
   </p>
-
   <div class="buttons">
-    <button id="yesBtn" onclick="yesClicked()">YES 💖</button>
-    <button id="noBtn" onclick="moveNo()">NO 🙈</button>
+    <button id="yes" onclick="yes()">YES 💖</button>
+    <button id="no" onclick="moveNo()">NO 🙈</button>
   </div>
 </div>
 
 <script>
-const noBtn = document.getElementById("noBtn");
-
-// lock size so it never changes
-const rect = noBtn.getBoundingClientRect();
-noBtn.style.width = rect.width + "px";
-noBtn.style.height = rect.height + "px";
-noBtn.style.position = "fixed";
+const noBtn=document.getElementById("no");
+let fixed=false;
 
 function moveNo(){
-  const padding = 20;
-  const maxX = window.innerWidth - noBtn.offsetWidth - padding;
-  const maxY = window.innerHeight - noBtn.offsetHeight - padding;
-
-  const x = Math.random() * maxX;
-  const y = Math.random() * maxY;
-
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
-}
-
-function yesClicked(){
-  document.body.innerHTML = `
-    <div id="loveScreen" style="
-      height:100vh;
-      width:100vw;
-      background:linear-gradient(135deg,#ffd1dc,#ffe6f0);
-      position:relative;
-      overflow:hidden;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-    ">
-      <div style="z-index:10;">
-        <h1 style="color:#ff4d6d;font-size:44px;">YAYYY 💖</h1>
-        <p style="font-size:20px;color:#555;">
-          You just made my heart the happiest, Shivani 💞
-        </p>
-      </div>
-    </div>
-  `;
-
-  for(let i=0;i<45;i++){
-    createKiss();
+  if(!fixed){
+    const r=noBtn.getBoundingClientRect();
+    noBtn.style.width=r.width+"px";
+    noBtn.style.height=r.height+"px";
+    noBtn.style.position="fixed";
+    noBtn.style.left=r.left+"px";
+    noBtn.style.top=r.top+"px";
+    fixed=true;
   }
+  noBtn.style.left=Math.random()*(window.innerWidth-noBtn.offsetWidth)+"px";
+  noBtn.style.top=Math.random()*(window.innerHeight-noBtn.offsetHeight)+"px";
 }
 
-function createKiss(){
-  const kiss = document.createElement("div");
-  kiss.innerText = "💋";
-  kiss.style.position = "absolute";
-  kiss.style.left = Math.random()*100 + "vw";
-  kiss.style.top = "110vh";
-  kiss.style.fontSize = (22 + Math.random()*28) + "px";
-  kiss.style.animation = `floatUp ${3 + Math.random()*3}s linear`;
-  document.getElementById("loveScreen").appendChild(kiss);
-
-  setTimeout(()=>kiss.remove(),6000);
+function yes(){
+  document.body.innerHTML=`
+  <div id="love" style="
+    height:100svh;
+    width:100vw;
+    background:linear-gradient(135deg,#ffd1dc,#ffe6f0);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+    position:relative;">
+    <div style="z-index:10">
+      <h1 style="color:#ff4d6d">YAYYY 💖</h1>
+      <p>You chose us, Shivani 💞</p>
+    </div>
+  </div>`;
+  for(let i=0;i<40;i++) kiss();
 }
 
-// animation
-const style = document.createElement("style");
-style.innerHTML = `
-@keyframes floatUp{
-  from{transform:translateY(0);opacity:1;}
-  to{transform:translateY(-130vh);opacity:0;}
-}`;
-document.head.appendChild(style);
+function kiss(){
+  const k=document.createElement("div");
+  k.innerText="💋";
+  k.style.position="absolute";
+  k.style.left=Math.random()*100+"vw";
+  k.style.top="110vh";
+  k.style.fontSize=20+Math.random()*25+"px";
+  k.style.animation="up 4s linear";
+  document.getElementById("love").appendChild(k);
+  setTimeout(()=>k.remove(),5000);
+}
+
+const s=document.createElement("style");
+s.innerHTML=`@keyframes up{to{transform:translateY(-130vh);opacity:0}}`;
+document.head.appendChild(s);
 </script>
 
 </body>
 </html>
+
