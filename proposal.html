@@ -1,179 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>For Shivani 💖</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>For Shivani 💗</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-    body {
-      height: 100vh;
-      background: linear-gradient(135deg, #ffd1dc, #ffe6f0);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
+body{
+  height:100vh;
+  background:linear-gradient(135deg,#ffd1dc,#ffe6f0);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
 
-    .container {
-      background: #fff;
-      padding: 30px 25px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-      animation: pop 1s ease;
-      width: 90%;
-      max-width: 380px;
-    }
+.card{
+  background:white;
+  padding:35px 30px;
+  width:340px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+  animation:fadeIn 1s ease;
+}
 
-    @keyframes pop {
-      0% { transform: scale(0.7); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
+h1{
+  color:#ff4d6d;
+  margin-bottom:15px;
+}
 
-    h1 {
-      color: #ff4d6d;
-      margin-bottom: 10px;
-    }
+p{
+  color:#555;
+  font-size:16px;
+  margin-bottom:25px;
+  line-height:1.5;
+}
 
-    p {
-      color: #555;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
 
-    .heart {
-      font-size: 50px;
-      animation: beat 1s infinite;
-    }
+button{
+  padding:12px 28px;
+  font-size:16px;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
+  transition:.2s;
+}
 
-    @keyframes beat {
-      0%,100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-    }
+#yesBtn{
+  background:#ff4d6d;
+  color:white;
+}
 
-    .buttons {
-      margin-top: 25px;
-      position: relative;
-      height: 120px;
-    }
+#yesBtn:hover{
+  transform:scale(1.05);
+}
 
-    button {
-      padding: 12px 25px;
-      border-radius: 30px;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-      position: absolute;
-      transition: 0.3s ease;
-    }
+#noBtn{
+  background:#ddd;
+  color:#333;
+}
 
-    #yesBtn {
-      background: #ff4d6d;
-      color: white;
-      left: 30px;
-      bottom: 10px;
-    }
-
-    #yesBtn:hover {
-      background: #ff2f55;
-    }
-
-    #noBtn {
-      background: #ffc2d1;
-      color: #333;
-      right: 30px;
-      bottom: 10px;
-    }
-
-    .footer {
-      margin-top: 15px;
-      font-size: 13px;
-      color: #999;
-    }
-  </style>
+@keyframes fadeIn{
+  from{opacity:0; transform:scale(.9);}
+  to{opacity:1; transform:scale(1);}
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
-  <div class="heart">💖</div>
-
-  <h1>Shivani</h1>
-
+<div class="card">
+  <h1>Hey Shivani 💗</h1>
   <p>
-    From random smiles to silent thoughts,<br>
-    you somehow became my favorite feeling.<br><br>
-    So today, with all my heart…
+    I don’t want to rush you,  
+    I don’t want to force anything…  
+    <br><br>
+    But my heart already knows where it belongs 🥺💞  
+    <br><br>
+    Will you be mine?
   </p>
 
-  <h2 style="color:#ff4d6d;">Will you be my Valentine? 🌹</h2>
-
   <div class="buttons">
-    <button id="yesBtn" onclick="yesClicked()">YES 💕</button>
+    <button id="yesBtn" onclick="yesClicked()">YES 💖</button>
     <button id="noBtn" onclick="moveNo()">NO 🙈</button>
-  </div>
-
-  <div class="footer">
-    Made with ❤️ just for you
   </div>
 </div>
 
 <script>
-  const noBtn = document.getElementById("noBtn");
+const noBtn = document.getElementById("noBtn");
 
-  // Lock the button size permanently
-  const rect = noBtn.getBoundingClientRect();
-  noBtn.style.width = rect.width + "px";
-  noBtn.style.height = rect.height + "px";
+// lock size so it never changes
+const rect = noBtn.getBoundingClientRect();
+noBtn.style.width = rect.width + "px";
+noBtn.style.height = rect.height + "px";
+noBtn.style.position = "fixed";
 
-  // Make it fixed so it can move anywhere on screen
-  noBtn.style.position = "fixed";
+function moveNo(){
+  const padding = 20;
+  const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+  const maxY = window.innerHeight - noBtn.offsetHeight - padding;
 
-  function moveNo() {
-    const padding = 20;
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
 
-    const maxX = window.innerWidth - noBtn.offsetWidth - padding;
-    const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
 
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
-
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-  }
-
-  function yesClicked() {
-    document.body.innerHTML = `
-      <div style="
-        height:100vh;
-        background: linear-gradient(135deg,#ffd1dc,#ffe6f0);
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        text-align:center;
-        font-family:Poppins,sans-serif;
-      ">
-        <div>
-          <h1 style="color:#ff4d6d;font-size:42px;">YAYYY 💖</h1>
-          <p style="font-size:20px;color:#555;">
-            You made my heart win, Shivani 🥹💞<br><br>
-            Happy Valentine’s Day 🌹
-          </p>
-          <div style="font-size:50px;">💘💘💘</div>
-        </div>
+function yesClicked(){
+  document.body.innerHTML = `
+    <div id="loveScreen" style="
+      height:100vh;
+      width:100vw;
+      background:linear-gradient(135deg,#ffd1dc,#ffe6f0);
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    ">
+      <div style="z-index:10;">
+        <h1 style="color:#ff4d6d;font-size:44px;">YAYYY 💖</h1>
+        <p style="font-size:20px;color:#555;">
+          You just made my heart the happiest, Shivani 💞
+        </p>
       </div>
-    `;
-  }
-</script>
+    </div>
+  `;
 
+  for(let i=0;i<45;i++){
+    createKiss();
+  }
+}
+
+function createKiss(){
+  const kiss = document.createElement("div");
+  kiss.innerText = "💋";
+  kiss.style.position = "absolute";
+  kiss.style.left = Math.random()*100 + "vw";
+  kiss.style.top = "110vh";
+  kiss.style.fontSize = (22 + Math.random()*28) + "px";
+  kiss.style.animation = `floatUp ${3 + Math.random()*3}s linear`;
+  document.getElementById("loveScreen").appendChild(kiss);
+
+  setTimeout(()=>kiss.remove(),6000);
+}
+
+// animation
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes floatUp{
+  from{transform:translateY(0);opacity:1;}
+  to{transform:translateY(-130vh);opacity:0;}
+}`;
+document.head.appendChild(style);
+</script>
 
 </body>
 </html>
