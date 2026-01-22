@@ -127,12 +127,21 @@
 </div>
 
 <script>
-  function moveNo() {
-    const noBtn = document.getElementById("noBtn");
-    const container = document.querySelector(".buttons");
+  const noBtn = document.getElementById("noBtn");
 
-    const maxX = container.clientWidth - noBtn.clientWidth;
-    const maxY = container.clientHeight - noBtn.clientHeight;
+  // Lock the button size permanently
+  const rect = noBtn.getBoundingClientRect();
+  noBtn.style.width = rect.width + "px";
+  noBtn.style.height = rect.height + "px";
+
+  // Make it fixed so it can move anywhere on screen
+  noBtn.style.position = "fixed";
+
+  function moveNo() {
+    const padding = 20;
+
+    const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+    const maxY = window.innerHeight - noBtn.offsetHeight - padding;
 
     const x = Math.random() * maxX;
     const y = Math.random() * maxY;
@@ -151,21 +160,20 @@
         align-items:center;
         text-align:center;
         font-family:Poppins,sans-serif;
-        animation: pop 1s ease;
       ">
         <div>
-          <h1 style="color:#ff4d6d;font-size:40px;">YAYYYYY 💕</h1>
+          <h1 style="color:#ff4d6d;font-size:42px;">YAYYY 💖</h1>
           <p style="font-size:20px;color:#555;">
-            I knew it 🥹💖<br><br>
-            Happy Valentine’s Day, Shivani 🌹<br>
-            You just made my heart smile forever ✨
+            You made my heart win, Shivani 🥹💞<br><br>
+            Happy Valentine’s Day 🌹
           </p>
-          <div style="font-size:50px;">💞💞💞</div>
+          <div style="font-size:50px;">💘💘💘</div>
         </div>
       </div>
     `;
   }
 </script>
+
 
 </body>
 </html>
