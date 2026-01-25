@@ -1,164 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>For Shivani 💗</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Shivani 💗</title>
 
-<style>
-* {
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
+  <!-- Handwritten-style font -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
 
-body {
-  margin: 0;
-  height: 100vh;
-  background: #ffe6f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-/* Envelope */
-.envelope-container {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  cursor: pointer;
-}
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #ffe6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Dancing Script', cursive;
+    }
 
-.envelope {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: #ffb6c1;
-  border-radius: 10px;
-  overflow: hidden;
-  z-index: 2;
-}
+    .container {
+      width: 90%;
+      max-width: 360px;
+      position: relative;
+    }
 
-/* Envelope flap */
-.flap {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 50%;
-  background: #ff9eb5;
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  transform-origin: top;
-  transition: transform 1s ease;
-  z-index: 3;
-}
+    /* ENVELOPE */
+    .envelope {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      background: #ffb6c1;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
 
-/* Heart */
-.heart {
-  position: absolute;
-  top: 75px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 28px;
-}
+    .envelope::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        135deg,
+        transparent 50%,
+        #ff9eb5 50%
+      );
+      clip-path: polygon(0 0, 100% 0, 50% 50%);
+    }
 
-/* Paper */
-.paper {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 260px;
-  height: 0;
-  background: #fff;
-  border-radius: 6px;
-  padding: 0 15px;
-  overflow: hidden;
-  transition: height 1.5s ease;
-  z-index: 1;
-}
+    .heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 32px;
+      animation: pulse 1.5s infinite;
+    }
 
-/* Letter text */
-.letter {
-  opacity: 0;
-  transition: opacity 1s ease;
-  color: #444;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 15px;
-}
+    @keyframes pulse {
+      0%,100% { transform: translate(-50%, -50%) scale(1); }
+      50% { transform: translate(-50%, -50%) scale(1.2); }
+    }
 
-/* Open state */
-.open .flap {
-  transform: rotateX(180deg);
-}
+    /* LETTER */
+    .letter {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 95%;
+      height: 0;
+      background: repeating-linear-gradient(
+        white,
+        white 28px,
+        #ffd6e5 29px
+      );
+      border-radius: 8px;
+      overflow: hidden;
+      padding: 0 18px;
+      transition: height 1s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    }
 
-.open .paper {
-  height: 360px;
-}
+    .letter.open {
+      height: 380px;
+      padding-top: 20px;
+    }
 
-.open .letter {
-  opacity: 1;
-}
-</style>
+    .letter p {
+      font-size: 18px;
+      line-height: 28px;
+      color: #444;
+      margin: 0;
+      font-style: italic;
+    }
+
+    .signature {
+      margin-top: 25px;
+      text-align: right;
+      font-weight: bold;
+      color: #e75480;
+    }
+
+    .tap-text {
+      position: absolute;
+      bottom: -30px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #b0005a;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="envelope-container" onclick="openEnvelope()">
-  <div class="paper">
-    <div class="letter">
-      <p>Hey Shivani 💗</p>
-
-      <p>
-        I don’t know how to say this perfectly, but I’ll try from my heart.
-      </p>
-
-      <p>
-        I love the way your eyes speak even when you don’t say anything.<br>
-        I love your hair — the way it falls, the way it feels so <i>you</i>.<br>
-        I love the little things about you that you probably don’t even notice,
-        but they mean everything to me.
-      </p>
-
-      <p>
-        When I think about the future, somehow you’re always there.
-        Not in a dramatic way… just naturally.
-        Like you belong in the picture my heart keeps drawing.
-      </p>
-
-      <p>
-        You’re genuinely a good soul, Shivani.
-        Kind, real, and beautiful in ways that go far beyond looks.
-        Being around you feels calm, safe, and special —
-        something I don’t feel easily.
-      </p>
-
-      <p>
-        I’m not here to rush you or pressure you.
-        I just want to be honest with you.
-      </p>
-
-      <p><strong>I love you, Shivani.</strong></p>
-
-      <p>
-        No matter what, I’m grateful for <i>you</i>.
-      </p>
-
-      <p>— From someone who really cares 💞</p>
+  <div class="container">
+    <div class="envelope" onclick="openLetter()">
+      <div class="heart">💌</div>
     </div>
-  </div>
 
-  <div class="envelope">
-    <div class="flap"></div>
-    <div class="heart">❤️</div>
-  </div>
-</div>
+    <div class="letter" id="letter">
+      <p>
+        Dear Shivani,<br><br>
 
-<script>
-function openEnvelope() {
-  document.querySelector('.envelope-container').classList.add('open');
-}
-</script>
-
-</body>
-</html>
-
+        I don’t know when it happene
