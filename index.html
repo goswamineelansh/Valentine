@@ -3,15 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Shivani 💗</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+<title>For Shivani 💌</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   height: 100vh;
@@ -19,53 +13,39 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Dancing Script', cursive;
 }
 
-.container {
-  width: 90%;
-  max-width: 360px;
-  position: relative;
-}
-
-/* ENVELOPE BODY */
 .envelope {
-  position: relative;
-  width: 100%;
-  height: 230px;
+  width: 320px;
+  height: 220px;
   background: #ffb6c1;
   border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   cursor: pointer;
 }
 
-/* FLAP */
 .flap {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 120px;
+  height: 110px;
   background: #ff9eb5;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform-origin: top;
   transition: transform 0.8s ease;
-  z-index: 3;
 }
 
-/* OPEN FLAP */
 .envelope.open .flap {
   transform: rotateX(180deg);
 }
 
-/* HEART */
 .heart {
   position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 32px;
-  z-index: 2;
+  font-size: 34px;
   animation: pulse 1.4s infinite;
 }
 
@@ -74,49 +54,10 @@ body {
   50% { transform: translate(-50%, -50%) scale(1.2); }
 }
 
-/* LETTER */
-.letter {
+.tap {
   position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 92%;
-  height: 0;
-  background: repeating-linear-gradient(
-    white,
-    white 28px,
-    #ffd6e5 29px
-  );
-  border-radius: 8px;
-  overflow: hidden;
-  padding: 0 18px;
-  transition: height 1s ease;
-  z-index: 1;
-}
-
-/* LETTER FULLY OUT */
-.envelope.open .letter {
-  height: 390px;
-  padding-top: 20px;
-}
-
-.letter p {
-  font-size: 18px;
-  line-height: 28px;
-  color: #444;
-  font-style: italic;
-  margin: 0;
-}
-
-.signature {
-  margin-top: 25px;
-  text-align: right;
-  color: #e75480;
-  font-weight: bold;
-}
-
-.tap-text {
-  margin-top: 12px;
+  bottom: -35px;
+  width: 100%;
   text-align: center;
   font-size: 14px;
   color: #b0005a;
@@ -126,49 +67,20 @@ body {
 
 <body>
 
-<div class="container">
-  <div class="envelope" onclick="openEnvelope()">
-    <div class="flap"></div>
-    <div class="heart">💌</div>
-
-    <div class="letter">
-      <p>
-        Dear Shivani,<br><br>
-
-        Somewhere between your smile and your eyes,
-        I fell in love without even realizing it.<br><br>
-
-        Your eyes hold a calm that feels like home.
-        Your hair, your presence,
-        the way you exist — it stays with me.<br><br>
-
-        You are beautiful in ways that go far beyond looks.
-        Your heart, your innocence,
-        the softness you carry — it matters to me deeply.<br><br>
-
-        When I think of the future,
-        I don’t imagine chaos.
-        I imagine peace.
-        And you are always there in it.<br><br>
-
-        I don’t promise perfection,
-        but I promise honesty,
-        effort,
-        and a heart that will always choose you.<br><br>
-
-        I love you.
-      </p>
-
-      <div class="signature">— Yours 💗</div>
-    </div>
-  </div>
-
-  <div class="tap-text">Tap the envelope</div>
+<div class="envelope" onclick="openEnvelope()">
+  <div class="flap"></div>
+  <div class="heart">💌</div>
+  <div class="tap">Tap the envelope</div>
 </div>
 
 <script>
 function openEnvelope() {
-  document.querySelector('.envelope').classList.add('open');
+  const env = document.querySelector('.envelope');
+  env.classList.add('open');
+
+  setTimeout(() => {
+    window.location.href = "letter.html";
+  }, 900);
 }
 </script>
 
