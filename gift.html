@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Choose the Right One 🎁</title>
+<title>Choose a Gift 🎁</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 
@@ -25,50 +25,49 @@ body {
 
 h1 {
   color: #b0005a;
-  margin-bottom: 30px;
   font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #e75480;
+  margin-bottom: 30px;
 }
 
 .gifts {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 18px;
 }
 
 .gift {
   width: 90px;
   height: 90px;
   background: #ff9eb5;
-  border-radius: 12px;
+  border-radius: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 40px;
   cursor: pointer;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  transition: transform 0.3s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gift:active {
+  transform: scale(0.92);
 }
 
 .gift:hover {
   transform: scale(1.1);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
 }
 
-.gift.wrong {
-  animation: shake 0.4s;
-}
-
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-
-.message {
+.note {
   margin-top: 25px;
-  font-size: 18px;
-  color: #e75480;
+  font-size: 15px;
+  color: #b0005a;
 }
 </style>
 </head>
@@ -76,35 +75,21 @@ h1 {
 <body>
 
 <div class="container">
-  <h1>Choose the right one 🎁</h1>
+  <h1>Choose a gift 🎁</h1>
+  <div class="subtitle">Each one is different</div>
 
   <div class="gifts">
-    <div class="gift" onclick="wrongGift(this)">🎁</div>
-    <div class="gift" onclick="rightGift()">🎁</div>
-    <div class="gift" onclick="wrongGift(this)">🎁</div>
+    <div class="gift" onclick="openGift('gift1.html')">🎁</div>
+    <div class="gift" onclick="openGift('gift2.html')">🎁</div>
+    <div class="gift" onclick="openGift('gift3.html')">🎁</div>
   </div>
 
-  <div class="message" id="message"></div>
+  <div class="note">Tap any gift</div>
 </div>
 
 <script>
-function wrongGift(el) {
-  el.classList.add("wrong");
-  document.getElementById("message").innerText = "Oops… try again 💭";
-
-  setTimeout(() => {
-    el.classList.remove("wrong");
-  }, 400);
-}
-
-function rightGift() {
-  document.getElementById("message").innerText =
-    "You chose the right one 💖";
-
-  // next page later
-  // setTimeout(() => {
-  //   window.location.href = "proposal.html";
-  // }, 1200);
+function openGift(page) {
+  window.location.href = page;
 }
 </script>
 
